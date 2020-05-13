@@ -51,14 +51,6 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.hardware_PurchasedBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.hardware_PurchasedDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
@@ -75,15 +67,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.may2020EquipmentHWDatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hardware_PurchasedBindingNavigator)).BeginInit();
             this.hardware_PurchasedBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.hardware_PurchasedDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // HWListView
             // 
             this.HWListView.HideSelection = false;
-            this.HWListView.Location = new System.Drawing.Point(754, 407);
+            this.HWListView.Location = new System.Drawing.Point(249, 28);
             this.HWListView.Name = "HWListView";
-            this.HWListView.Size = new System.Drawing.Size(38, 31);
+            this.HWListView.Size = new System.Drawing.Size(548, 337);
             this.HWListView.TabIndex = 19;
             this.HWListView.UseCompatibleStateImageBehavior = false;
             // 
@@ -99,7 +90,6 @@
             // 
             // HWChangesTextBox
             // 
-            this.HWChangesTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.hardware_PurchasedBindingSource, "Hardware_Name", true));
             this.HWChangesTextBox.Location = new System.Drawing.Point(68, 49);
             this.HWChangesTextBox.Multiline = true;
             this.HWChangesTextBox.Name = "HWChangesTextBox";
@@ -118,7 +108,6 @@
             // 
             // HWBrandTextBox
             // 
-            this.HWBrandTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.hardware_PurchasedBindingSource, "Hardware_Brand", true));
             this.HWBrandTextBox.Location = new System.Drawing.Point(68, 91);
             this.HWBrandTextBox.Multiline = true;
             this.HWBrandTextBox.Name = "HWBrandTextBox";
@@ -174,6 +163,7 @@
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Add new";
+            //this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
             // 
             // bindingNavigatorCountItem
             // 
@@ -190,6 +180,7 @@
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorDeleteItem.Text = "Delete";
+           // this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -261,71 +252,8 @@
             this.hardware_PurchasedBindingNavigatorSaveItem.Text = "Save Data";
             this.hardware_PurchasedBindingNavigatorSaveItem.Click += new System.EventHandler(this.hardware_PurchasedBindingNavigatorSaveItem_Click);
             // 
-            // hardware_PurchasedDataGridView
-            // 
-            this.hardware_PurchasedDataGridView.AutoGenerateColumns = false;
-            this.hardware_PurchasedDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.hardware_PurchasedDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7});
-            this.hardware_PurchasedDataGridView.DataSource = this.hardware_PurchasedBindingSource;
-            this.hardware_PurchasedDataGridView.Location = new System.Drawing.Point(194, 28);
-            this.hardware_PurchasedDataGridView.Name = "hardware_PurchasedDataGridView";
-            this.hardware_PurchasedDataGridView.Size = new System.Drawing.Size(624, 309);
-            this.hardware_PurchasedDataGridView.TabIndex = 23;
-            this.hardware_PurchasedDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.hardware_PurchasedDataGridView_CellContentClick);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "HWID";
-            this.dataGridViewTextBoxColumn1.HeaderText = "HWID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Hardware_Name";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Hardware_Name";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Hardware_Brand";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Hardware_Brand";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Hardware_Model";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Hardware_Model";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Hardware_Type";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Hardware_Type";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Hardware_Status";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Hardware_Status";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "Hardware_Price";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Hardware_Price";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            // 
             // textBox3
             // 
-            this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.hardware_PurchasedBindingSource, "Hardware_Type", true));
             this.textBox3.Location = new System.Drawing.Point(68, 186);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(120, 20);
@@ -333,7 +261,6 @@
             // 
             // textBox4
             // 
-            this.textBox4.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.hardware_PurchasedBindingSource, "Hardware_Status", true));
             this.textBox4.Location = new System.Drawing.Point(68, 233);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(120, 20);
@@ -341,7 +268,6 @@
             // 
             // textBox5
             // 
-            this.textBox5.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.hardware_PurchasedBindingSource, "Hardware_Price", true));
             this.textBox5.Location = new System.Drawing.Point(60, 286);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(120, 20);
@@ -367,7 +293,6 @@
             // 
             // HWModelTextBox
             // 
-            this.HWModelTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.hardware_PurchasedBindingSource, "Hardware_Model", true));
             this.HWModelTextBox.Location = new System.Drawing.Point(68, 145);
             this.HWModelTextBox.Name = "HWModelTextBox";
             this.HWModelTextBox.Size = new System.Drawing.Size(120, 20);
@@ -427,7 +352,7 @@
             this.DeleteButton.TabIndex = 37;
             this.DeleteButton.Text = "Delete Item";
             this.DeleteButton.UseVisualStyleBackColor = true;
-            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
+          //  this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // CSharpHWForm
             // 
@@ -446,7 +371,6 @@
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.hardware_PurchasedDataGridView);
             this.Controls.Add(this.hardware_PurchasedBindingNavigator);
             this.Controls.Add(this.HWBrandTextBox);
             this.Controls.Add(this.HWChangesTextBox);
@@ -461,7 +385,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.hardware_PurchasedBindingNavigator)).EndInit();
             this.hardware_PurchasedBindingNavigator.ResumeLayout(false);
             this.hardware_PurchasedBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.hardware_PurchasedDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -489,14 +412,6 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton hardware_PurchasedBindingNavigatorSaveItem;
-        private System.Windows.Forms.DataGridView hardware_PurchasedDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox5;

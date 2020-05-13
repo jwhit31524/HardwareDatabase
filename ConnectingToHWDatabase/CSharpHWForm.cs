@@ -48,11 +48,11 @@ namespace ConnectingToHWDatabase
             hwContext.HWEntities.Add(hardwareInfo);
             hwContext.SaveChanges();
 
-
+/*
             this.Validate();
             this.hardware_PurchasedBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.may2020EquipmentHWDatabaseDataSet);
-
+            */
             RefreshView(); 
               
               
@@ -99,11 +99,36 @@ namespace ConnectingToHWDatabase
         private void AddButton_Click(object sender, EventArgs e)
         {
 
+           void AddARow(DataTable table)
+            {
+
+                // Use the NewRow method to create a DataRow with 
+                // the table's schema.
+                DataRow newRow = table.NewRow();
+
+                // Add the row to the rows collection.
+                table.Rows.Add(newRow);
+            }
+            
         }
 
-        private void DeleteButton_Click(object sender, EventArgs e)
+        /*    private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow item in this.hardware_PurchasedDataGridView.SelectedRows)
+            {
+                hardware_PurchasedDataGridView.Rows.RemoveAt(item.Index);
+            }
+        }
+
+        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
+        {
+
+        }
+        */
     }
 }
