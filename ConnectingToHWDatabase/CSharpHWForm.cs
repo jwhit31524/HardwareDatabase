@@ -95,5 +95,15 @@ namespace ConnectingToHWDatabase
         {
 
         }
+
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -417,6 +417,7 @@
             this.AddButton.TabIndex = 36;
             this.AddButton.Text = "Add New Entry";
             this.AddButton.UseVisualStyleBackColor = true;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // DeleteButton
             // 
@@ -426,6 +427,7 @@
             this.DeleteButton.TabIndex = 37;
             this.DeleteButton.Text = "Delete Item";
             this.DeleteButton.UseVisualStyleBackColor = true;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
             // 
             // CSharpHWForm
             // 
