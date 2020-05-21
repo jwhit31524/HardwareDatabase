@@ -34,7 +34,7 @@ namespace ConnectingToHWDatabase
             HWListView.Columns.Add("Hardware Type", -2, HorizontalAlignment.Left);
             HWListView.Columns.Add("Hardware Status", -2, HorizontalAlignment.Left);
             HWListView.Columns.Add("Hardware Price", -2, HorizontalAlignment.Left);
-            // HWListView.Columns.Add("Hardware DOP", -2, HorizontalAlignment.Left);
+            HWListView.Columns.Add("Hardware DOP", -2, HorizontalAlignment.Left);
 
             RefreshView();
         }
@@ -44,17 +44,21 @@ namespace ConnectingToHWDatabase
             var hardwareInfo= new HWEntity();
             hardwareInfo.Hardware_Name = HWChangesTextBox.Text;
             hardwareInfo.Hardware_Brand = HWBrandTextBox.Text;
-            hardwareInfo.Hardware_Brand = HWModelTextBox.Text;
+            hardwareInfo.Hardware_Model = HWModelTextBox.Text;
+            hardwareInfo.Hardware_Type = HWTypeTextBox.Text;
+            hardwareInfo.Hardware_Status = HWStatusTextBox.Text;
+            hardwareInfo.Hardware_Price = Convert.ToDecimal(HWPriceTextBox.Text);
             hwContext.HWEntities.Add(hardwareInfo);
             hwContext.SaveChanges();
 
-/*
-            this.Validate();
-            this.hardware_PurchasedBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.may2020EquipmentHWDatabaseDataSet);
-            */
-            RefreshView(); 
-              
+            RefreshView();
+
+            /*
+                        this.Validate();
+                        this.hardware_PurchasedBindingSource.EndEdit();
+                        this.tableAdapterManager.UpdateAll(this.may2020EquipmentHWDatabaseDataSet);
+                        */
+         
               
         }
         private void RefreshView()
@@ -71,6 +75,10 @@ namespace ConnectingToHWDatabase
                  listViewItem.SubItems.Add(hardwareInfo.Hardware_Name);
                 listViewItem.SubItems.Add(hardwareInfo.Hardware_Brand);
                 listViewItem.SubItems.Add(hardwareInfo.Hardware_Model);
+                listViewItem.SubItems.Add(hardwareInfo.Hardware_Type);
+                listViewItem.SubItems.Add(hardwareInfo.Hardware_Status);
+                listViewItem.SubItems.Add(hardwareInfo.Hardware_Price.ToString());
+
                 HWListView.Items.Add(listViewItem);
              }
 
@@ -99,17 +107,65 @@ namespace ConnectingToHWDatabase
         private void AddButton_Click(object sender, EventArgs e)
         {
 
-           void AddARow(DataTable table)
+            var hardwareInfo = new HWEntity();
+            hardwareInfo.Hardware_Name = HWChangesTextBox.Text;
+            hardwareInfo.Hardware_Brand = HWBrandTextBox.Text;
+            hardwareInfo.Hardware_Model = HWModelTextBox.Text;
+            hardwareInfo.Hardware_Type = HWTypeTextBox.Text;
+            hardwareInfo.Hardware_Status = HWStatusTextBox.Text;
+            hardwareInfo.Hardware_Price = Convert.ToDecimal(HWPriceTextBox.Text);
+            hwContext.HWEntities.Add(hardwareInfo);
+            hwContext.SaveChanges();
+
+            RefreshView();
+
+        }
+
+        private void ClearTextBoxesButton_Click(object sender, EventArgs e)
+        {
+            ClearTextBoxes();
+
+        }
+
+        private void ClearTextBoxes()
+        {
+            HWIDTextBox.Clear();
+            HWChangesTextBox.Clear();
+            HWBrandTextBox.Clear();
+            HWModelTextBox.Clear();
+            HWTypeTextBox.Clear();
+            HWStatusTextBox.Clear();
+            HWPriceTextBox.Clear();
+        }
+
+        private void HWListView_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            var id = Convert.ToInt32(e.Item.Text);
+            var entity = hwContext.HWEntities.Find(new object[]{ id });
+            if (entity == null)
             {
+                ClearTextBoxes();
 
-                // Use the NewRow method to create a DataRow with 
-                // the table's schema.
-                DataRow newRow = table.NewRow();
-
-                // Add the row to the rows collection.
-                table.Rows.Add(newRow);
+                return;
             }
-            
+            HWIDTextBox.Text = entity.HWID.ToString();
+            HWChangesTextBox.Text = entity.Hardware_Name;
+            HWBrandTextBox.Text = entity.Hardware_Brand;
+            HWModelTextBox.Text = entity.Hardware_Model;
+            HWTypeTextBox.Text = entity.Hardware_Type;
+            HWStatusTextBox.Text = entity.Hardware_Status;
+            HWPriceTextBox.Text = entity.Hardware_Price.ToString();
+
+        }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            var id = Convert.ToInt32(HWIDTextBox.Text);
+            var entity = hwContext.HWEntities.Find(new object[] { id });
+            hwContext.HWEntities.Remove(entity);
+            hwContext.SaveChanges();
+            ClearTextBoxes();
+            RefreshView();
         }
 
         /*    private void DeleteButton_Click(object sender, EventArgs e)

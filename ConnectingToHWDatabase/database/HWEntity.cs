@@ -26,9 +26,9 @@ namespace ConnectingToHWDatabase.database
 
          public string Hardware_Status { get; set; }
 
-         public double Hardware_Price { get; set; }
+         public decimal Hardware_Price { get; set; }
 
-         //public DateTime Hardware_DOP{ get; set; }
+        // public DateTime Hardware_DOP{ get; set; }
 
 
         }

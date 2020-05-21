@@ -51,9 +51,9 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.hardware_PurchasedBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.HWTypeTextBox = new System.Windows.Forms.TextBox();
+            this.HWStatusTextBox = new System.Windows.Forms.TextBox();
+            this.HWPriceTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.HWModelTextBox = new System.Windows.Forms.TextBox();
@@ -63,6 +63,9 @@
             this.label6 = new System.Windows.Forms.Label();
             this.AddButton = new System.Windows.Forms.Button();
             this.DeleteButton = new System.Windows.Forms.Button();
+            this.ClearTextBoxesButton = new System.Windows.Forms.Button();
+            this.HWIDLabel = new System.Windows.Forms.Label();
+            this.HWIDTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.hardware_PurchasedBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.may2020EquipmentHWDatabaseDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hardware_PurchasedBindingNavigator)).BeginInit();
@@ -71,12 +74,14 @@
             // 
             // HWListView
             // 
+            this.HWListView.FullRowSelect = true;
             this.HWListView.HideSelection = false;
             this.HWListView.Location = new System.Drawing.Point(249, 28);
             this.HWListView.Name = "HWListView";
             this.HWListView.Size = new System.Drawing.Size(548, 337);
             this.HWListView.TabIndex = 19;
             this.HWListView.UseCompatibleStateImageBehavior = false;
+            this.HWListView.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.HWListView_ItemSelectionChanged);
             // 
             // SaveChangesButton
             // 
@@ -90,10 +95,10 @@
             // 
             // HWChangesTextBox
             // 
-            this.HWChangesTextBox.Location = new System.Drawing.Point(68, 49);
+            this.HWChangesTextBox.Location = new System.Drawing.Point(80, 87);
             this.HWChangesTextBox.Multiline = true;
             this.HWChangesTextBox.Name = "HWChangesTextBox";
-            this.HWChangesTextBox.Size = new System.Drawing.Size(120, 24);
+            this.HWChangesTextBox.Size = new System.Drawing.Size(120, 16);
             this.HWChangesTextBox.TabIndex = 21;
             // 
             // hardware_PurchasedBindingSource
@@ -108,7 +113,7 @@
             // 
             // HWBrandTextBox
             // 
-            this.HWBrandTextBox.Location = new System.Drawing.Point(68, 91);
+            this.HWBrandTextBox.Location = new System.Drawing.Point(80, 129);
             this.HWBrandTextBox.Multiline = true;
             this.HWBrandTextBox.Name = "HWBrandTextBox";
             this.HWBrandTextBox.Size = new System.Drawing.Size(120, 22);
@@ -163,7 +168,6 @@
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Add new";
-            //this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
             // 
             // bindingNavigatorCountItem
             // 
@@ -180,7 +184,6 @@
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorDeleteItem.Text = "Delete";
-           // this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -252,31 +255,31 @@
             this.hardware_PurchasedBindingNavigatorSaveItem.Text = "Save Data";
             this.hardware_PurchasedBindingNavigatorSaveItem.Click += new System.EventHandler(this.hardware_PurchasedBindingNavigatorSaveItem_Click);
             // 
-            // textBox3
+            // HWTypeTextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(68, 186);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(120, 20);
-            this.textBox3.TabIndex = 26;
+            this.HWTypeTextBox.Location = new System.Drawing.Point(80, 224);
+            this.HWTypeTextBox.Name = "HWTypeTextBox";
+            this.HWTypeTextBox.Size = new System.Drawing.Size(120, 20);
+            this.HWTypeTextBox.TabIndex = 26;
             // 
-            // textBox4
+            // HWStatusTextBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(68, 233);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(120, 20);
-            this.textBox4.TabIndex = 27;
+            this.HWStatusTextBox.Location = new System.Drawing.Point(80, 271);
+            this.HWStatusTextBox.Name = "HWStatusTextBox";
+            this.HWStatusTextBox.Size = new System.Drawing.Size(120, 20);
+            this.HWStatusTextBox.TabIndex = 27;
             // 
-            // textBox5
+            // HWPriceTextBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(60, 286);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(120, 20);
-            this.textBox5.TabIndex = 28;
+            this.HWPriceTextBox.Location = new System.Drawing.Point(80, 321);
+            this.HWPriceTextBox.Name = "HWPriceTextBox";
+            this.HWPriceTextBox.Size = new System.Drawing.Size(120, 20);
+            this.HWPriceTextBox.TabIndex = 28;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(0, 52);
+            this.label1.Location = new System.Drawing.Point(12, 90);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 13);
             this.label1.TabIndex = 29;
@@ -285,7 +288,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 94);
+            this.label2.Location = new System.Drawing.Point(15, 132);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 13);
             this.label2.TabIndex = 30;
@@ -293,7 +296,7 @@
             // 
             // HWModelTextBox
             // 
-            this.HWModelTextBox.Location = new System.Drawing.Point(68, 145);
+            this.HWModelTextBox.Location = new System.Drawing.Point(80, 183);
             this.HWModelTextBox.Name = "HWModelTextBox";
             this.HWModelTextBox.Size = new System.Drawing.Size(120, 20);
             this.HWModelTextBox.TabIndex = 31;
@@ -301,7 +304,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(0, 148);
+            this.label3.Location = new System.Drawing.Point(18, 183);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 13);
             this.label3.TabIndex = 32;
@@ -310,7 +313,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 186);
+            this.label4.Location = new System.Drawing.Point(18, 224);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(50, 13);
             this.label4.TabIndex = 33;
@@ -319,7 +322,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 236);
+            this.label5.Location = new System.Drawing.Point(18, 274);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(56, 13);
             this.label5.TabIndex = 34;
@@ -328,7 +331,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 286);
+            this.label6.Location = new System.Drawing.Point(18, 324);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(50, 13);
             this.label6.TabIndex = 35;
@@ -352,13 +355,44 @@
             this.DeleteButton.TabIndex = 37;
             this.DeleteButton.Text = "Delete Item";
             this.DeleteButton.UseVisualStyleBackColor = true;
-          //  this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
+            // 
+            // ClearTextBoxesButton
+            // 
+            this.ClearTextBoxesButton.Location = new System.Drawing.Point(409, 415);
+            this.ClearTextBoxesButton.Name = "ClearTextBoxesButton";
+            this.ClearTextBoxesButton.Size = new System.Drawing.Size(161, 23);
+            this.ClearTextBoxesButton.TabIndex = 38;
+            this.ClearTextBoxesButton.Text = "Clear Text Boxes";
+            this.ClearTextBoxesButton.UseVisualStyleBackColor = true;
+            this.ClearTextBoxesButton.Click += new System.EventHandler(this.ClearTextBoxesButton_Click);
+            // 
+            // HWIDLabel
+            // 
+            this.HWIDLabel.AutoSize = true;
+            this.HWIDLabel.Location = new System.Drawing.Point(13, 48);
+            this.HWIDLabel.Name = "HWIDLabel";
+            this.HWIDLabel.Size = new System.Drawing.Size(43, 13);
+            this.HWIDLabel.TabIndex = 39;
+            this.HWIDLabel.Text = "HW_ID";
+            // 
+            // HWIDTextBox
+            // 
+            this.HWIDTextBox.BackColor = System.Drawing.SystemColors.Window;
+            this.HWIDTextBox.Location = new System.Drawing.Point(80, 45);
+            this.HWIDTextBox.Name = "HWIDTextBox";
+            this.HWIDTextBox.ReadOnly = true;
+            this.HWIDTextBox.Size = new System.Drawing.Size(120, 20);
+            this.HWIDTextBox.TabIndex = 40;
             // 
             // CSharpHWForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(818, 458);
+            this.Controls.Add(this.HWIDTextBox);
+            this.Controls.Add(this.HWIDLabel);
+            this.Controls.Add(this.ClearTextBoxesButton);
             this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.label6);
@@ -368,9 +402,9 @@
             this.Controls.Add(this.HWModelTextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.HWPriceTextBox);
+            this.Controls.Add(this.HWStatusTextBox);
+            this.Controls.Add(this.HWTypeTextBox);
             this.Controls.Add(this.hardware_PurchasedBindingNavigator);
             this.Controls.Add(this.HWBrandTextBox);
             this.Controls.Add(this.HWChangesTextBox);
@@ -379,7 +413,6 @@
             this.Name = "CSharpHWForm";
             this.Text = "Hardware Form";
             this.Load += new System.EventHandler(this.CSharpHWForm_Load);
-            this.BindingContextChanged += new System.EventHandler(this.SaveChangesButton_Click);
             ((System.ComponentModel.ISupportInitialize)(this.hardware_PurchasedBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.may2020EquipmentHWDatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hardware_PurchasedBindingNavigator)).EndInit();
@@ -412,9 +445,9 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton hardware_PurchasedBindingNavigatorSaveItem;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox HWTypeTextBox;
+        private System.Windows.Forms.TextBox HWStatusTextBox;
+        private System.Windows.Forms.TextBox HWPriceTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox HWModelTextBox;
@@ -424,6 +457,9 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Button DeleteButton;
+        private System.Windows.Forms.Button ClearTextBoxesButton;
+        private System.Windows.Forms.Label HWIDLabel;
+        private System.Windows.Forms.TextBox HWIDTextBox;
     }
 }
 
